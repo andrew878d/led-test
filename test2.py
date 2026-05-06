@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw
 from adafruit_rgb_display import ili9341 # Use the ILI9341 driver
 
 # 1. Initialize Display Pins
-cs_pin = digitalio.DigitalInOut(board.D7)    # Physical Pin 26 (CE1)
+cs_pin = digitalio.DigitalInOut(board.D22)    # Physical Pin 26 (CE1)
 dc_pin = digitalio.DigitalInOut(board.D24)   # Physical Pin 18
 reset_pin = digitalio.DigitalInOut(board.D25)# Physical Pin 22
 
