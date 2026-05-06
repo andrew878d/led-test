@@ -1,10 +1,10 @@
 import time
 from PIL import Image, ImageDraw
-import ST7789 
+import st7789 
 # Change to ILI9341 if that is your specific driver
 
 # 1. Initialize Display
-disp = ST7789.ST7789(port=0, cs=1, dc=24, rst=25, width=320, height=240, rotation=0)
+disp = st7789.ST7789(port=0, cs=1, dc=24, rst=25, width=320, height=240, rotation=0)
 disp.begin()
 
 # 2. Create Canvas (Black background)
@@ -24,3 +24,9 @@ draw.polygon(hexagon, outline="yellow", fill="purple")
 
 # 4. Write to Screen
 disp.display(canvas)
+
+try:
+  while True:
+    time.sleep(1)
+except KeyboardInterrupt:
+  print("Stopping python code...")
