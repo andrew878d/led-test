@@ -4,7 +4,7 @@ import busio
 import digitalio
 from PIL import Image, ImageDraw
 
-# Use the ILI9341 driver
+#use the ILI9341 driver
 from adafruit_rgb_display import ili9341
 
 #initialize pins
@@ -15,7 +15,7 @@ reset_pin = digitalio.DigitalInOut(board.D25)# RP Pin 22
 #Setup SPI
 spi = busio.SPI(clock=board.SCK, MOSI=board.MOSI, MISO=board.MISO)
 
-# Initialize the ILI9341 driver
+#initialize the ILI9341 driver
 disp = ili9341.ILI9341(
     spi,
     cs=cs_pin,
