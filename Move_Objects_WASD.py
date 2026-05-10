@@ -37,25 +37,27 @@ RADIUS = 20
 cx = WIDTH // 2  #center x
 cy = HEIGHT // 2 #center y 
 STEP_SIZE = 10   #move 10 pixels per movement
+#the circle is really just using the ellipse shape.
 draw.ellipse([cx - RADIUS, cy - RADIUS, cx + RADIUS, cy + RADIUS], outline="red", fill="blue")
 disp.image(canvas, rotation=90)
 print("Initial centered circle drawn")
 
-#If the user enters WASD, a new circle will be drawn using its center values
+#If the user enters WASD, a new circle will be drawn with new centered x or y values
 
-#Detect keyboard input
 try:
     while True:
+        #detect keyboard input
         key = input("Enter WASD or q to quit: ").lower()
         
         if key =='q':
             #then quit
             break
 
+        #duplicate variables of previous x and y values 
         new_cx = cx
         new_cy = cy
         
-        #Switch statement to move object. Border is 320x240
+        #Switch statement to move object. 
         match key:
             case 'w':
                 new_cy = cy - STEP_SIZE
@@ -66,15 +68,17 @@ try:
             case 'd':
                 new_cx = cx + STEP_SIZE
                 
-        #first detect if object is at the border:
-      
+        #detect if new x or y values will be equal to the border
+        #Border is width 320 pixels by height 240 pixels.
         if (new_cx - RADIUS) >= 0 and (new_cx + RADIUS) <= WIDTH:
-            cx = new_cx # It's safe to move horizontally
+            #then safe to move horizontally
+            cx = new_cx 
 
         if (new_cy - RADIUS) >= 0 and (new_cy + RADIUS) <= HEIGHT:
-            cy = new_cy # It's safe to move vertically
+            #then safe to move vertically
+            cy = new_cy 
 
-        #re-draw screen with new update
+        #re-draw screen with new changes:
 
         #clear screen
         draw.rectangle((0, 0, WIDTH, HEIGHT), fill="BLACK")
