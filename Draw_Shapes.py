@@ -1,3 +1,7 @@
+#python code for Raspberry Pi 4
+#Author: Andrew Dale
+#BEE499 Vemuri Spring 2026
+
 import time
 import board
 import busio
