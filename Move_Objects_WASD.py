@@ -45,7 +45,7 @@ try:
     while True:
         key = input("Enter WASD or q to quit").lower()
         
-        if key =='q'
+        if key =='q':
             #then quit
             break
 
