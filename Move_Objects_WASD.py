@@ -46,7 +46,7 @@ print("Initial centered circle drawn")
 #Detect keyboard input
 try:
     while True:
-        key = input("Enter WASD or q to quit").lower()
+        key = input("Enter WASD or q to quit: ").lower()
         
         if key =='q':
             #then quit
