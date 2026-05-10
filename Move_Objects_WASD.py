@@ -24,6 +24,9 @@ disp = ili9341.ILI9341(
     baudrate=24000000
 )
 
+WIDTH=320
+HEIGHT=240
+
 #Create Canvas
 canvas = Image.new("RGB", (320, 240), "BLACK")
 draw = ImageDraw.Draw(canvas)
@@ -31,9 +34,9 @@ draw = ImageDraw.Draw(canvas)
 #Draw circle at center to start
 #bottom left point (x1,y1,...) top right point (,...x2,y2)
 RADIUS = 20
-cx = WIDTH // 2  # Center X (Start at 160)
-cy = HEIGHT // 2 # Center Y (Start at 120)
-STEP_SIZE = 10   # Move 10 pixels per turn
+cx = WIDTH // 2  #center x
+cy = HEIGHT // 2 #center y 
+STEP_SIZE = 10   #move 10 pixels per movement
 draw.ellipse([cx - RADIUS, cy - RADIUS, cx + RADIUS, cy + RADIUS], outline="red", fill="blue")
 disp.image(canvas, rotation=90)
 print("Initial centered circle drawn")
@@ -49,8 +52,8 @@ try:
             #then quit
             break
 
-        new_cx = x
-        new_cy = y
+        new_cx = cx
+        new_cy = cy
         
         #Switch statement to move object. Border is 320x240
         match key:
