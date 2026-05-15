@@ -59,7 +59,7 @@ print("Initial centered circle drawn")
 try:
     while True:
       
-      #get mpu6050 data:
+      #get tilt forces from the mpu6050
       accel_x, accel_y, accel_z = mpu.acceleration
 
       #duplicate variables of previous x and y values 
@@ -67,16 +67,26 @@ try:
       new_cy = cy
 
       #use polar coordinates
-      #r = 
-      #theta = 
+        
+      #magnitude r = sqrt(a^2 + b^2)
+      #r will be like the new STEP SIZE. 
       r = math.sqrt(accel_x**2 + accel_y**2)
+
+      #theta: angle of tilt to tell us which direction in the x and y direction. - or +.
+      #theta = arctan(y and x)
       theta = math.atan2(accel_y, accel_x)
 
+      #only if magnitude of tilt is big enough will the circle move.
+      #this allows the circle to stay if the sensor is flat.
       if r > 1.0:
+
+        #convert magnitude r back to X and Y values so we know how much to change the circle movement. 
+        #X = r * cos(theta)
+        #Y = r * sin(theta)
         new_cx = cx + (r * math.cos(theta))
         new_cy = cy + (r * math.sin(theta))
         
-        #detect if new x or y values will be equal to the border
+        #detect if new x or y values will be equal to the border. Nothing new here from WASD code.
         #Border is width 320 pixels by height 240 pixels.
         if (new_cx - RADIUS) >= 0 and (new_cx + RADIUS) <= WIDTH:
             #then safe to move horizontally
