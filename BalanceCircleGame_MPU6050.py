@@ -97,7 +97,7 @@ try:
         #detect if new x or y values will be equal to the border. Nothing new here from WASD code.
         #Border is width 320 pixels by height 240 pixels.
         if (new_cx - RADIUS) < 0 or (new_cx + RADIUS) > WIDTH or \
-           (new_cy - RADIUS) < 0 or (new_cy + RADIUS) > HEIGHT
+           (new_cy - RADIUS) < 0 or (new_cy + RADIUS) > HEIGHT:
             print(f"GAME OVER. You hit the wall. You reached difficulty a = {a:.2f}")
     
             #the screen flashes red then resets the game
