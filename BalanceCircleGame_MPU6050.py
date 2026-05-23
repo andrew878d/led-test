@@ -92,7 +92,7 @@ try:
         #Y = r * sin(theta)
         #a is added for scaling factor of mini game
         new_cx = cx + a * (r * math.cos(theta))
-        new_cy = cy + a * (r * math.sin(theta))
+        new_cy = cy - a * (r * math.sin(theta))
         
         #detect if new x or y values will be equal to the border. Nothing new here from WASD code.
         #Border is width 320 pixels by height 240 pixels.
