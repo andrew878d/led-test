@@ -64,7 +64,7 @@ try:
     while True:
       
       #get tilt forces from the mpu6050
-      accel_x, accel_y = mpu.acceleration
+      accel_x, accel_y, accel_z = mpu.acceleration
 
       #duplicate variables of previous x and y values 
       new_cx = cx
